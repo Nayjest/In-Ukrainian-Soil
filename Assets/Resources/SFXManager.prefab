@@ -1,0 +1,724 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4733645479185369999
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4733645479185370000}
+  - component: {fileID: 4733645479185370001}
+  m_Layer: 0
+  m_Name: Default
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4733645479185370000
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4733645479185369999}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4733645479545350381}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &4733645479185370001
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4733645479185369999}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -2064164837535275794, guid: a0946f24a57fa3b4980f9b8521cdf2af, type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!1 &4733645479545350379
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4733645479545350381}
+  - component: {fileID: 4733645479545350382}
+  m_Layer: 0
+  m_Name: SFXManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4733645479545350381
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4733645479545350379}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4733645479185370000}
+  - {fileID: 473117634280087145}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4733645479545350382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4733645479545350379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b143d5ce9d68b6b4f937dec60afc3325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Collection:
+  - Name: UI.BtnSelect
+    Src:
+      StorageType: 2
+      SingleObject: {fileID: 8300000, guid: ce4f40e1a17ea894b970a657bc7b300e, type: 3}
+      Method: 0
+      WeightDecrease: 0
+      WeightIncrease: 0
+      WeightsResetLimit: 0
+      Collection: {fileID: 0}
+      _list:
+        WeightDecrease: 0
+        WeightIncrease: 0
+        DropZeroWeightElements: 0
+        WeightsResetLimit: 0
+        ExposeFieldsToInspector: 1
+        elements: []
+        Seed: 0
+    Cooldown: 0
+    RandomizePitch: 0
+    BasePitch: 1
+    PlayChance: 1
+    StartDelay: 0
+    Volume: 1
+    AddClipLengthToCoolDown: 0
+    NamedAudioSource: 
+    HasLocalization: 0
+    LocalizedSounds: []
+    Mixer: {fileID: 563320111096732788, guid: a0946f24a57fa3b4980f9b8521cdf2af, type: 2}
+  - Name: UI.BtnClick
+    Src:
+      StorageType: 2
+      SingleObject: {fileID: 8300000, guid: fb599731181e8ff4692f0fafc47b1029, type: 3}
+      Method: 0
+      WeightDecrease: 0
+      WeightIncrease: 0
+      WeightsResetLimit: 0
+      Collection: {fileID: 0}
+      _list:
+        WeightDecrease: 0
+        WeightIncrease: 0
+        DropZeroWeightElements: 0
+        WeightsResetLimit: 0
+        ExposeFieldsToInspector: 1
+        elements: []
+        Seed: 0
+    Cooldown: 0
+    RandomizePitch: 0
+    BasePitch: 1
+    PlayChance: 1
+    StartDelay: 0
+    Volume: 1
+    AddClipLengthToCoolDown: 0
+    NamedAudioSource: 
+    HasLocalization: 0
+    LocalizedSounds: []
+    Mixer: {fileID: 563320111096732788, guid: a0946f24a57fa3b4980f9b8521cdf2af, type: 2}
+  - Name: Voice.LowEnergy.UA
+    Src:
+      StorageType: 1
+      SingleObject: {fileID: 0}
+      Method: 3
+      WeightDecrease: 0
+      WeightIncrease: 0
+      WeightsResetLimit: 0
+      Collection: {fileID: 0}
+      _list:
+        WeightDecrease: 0
+        WeightIncrease: 0
+        DropZeroWeightElements: 0
+        WeightsResetLimit: 0
+        ExposeFieldsToInspector: 0
+        elements:
+        - Weight: 1
+          Element: {fileID: 8300000, guid: a9fc021a0d8df0e4ea44a181a9492561, type: 3}
+        - Weight: 1
+          Element: {fileID: 8300000, guid: 5b2dec75302b02041bbfc4cf8ad0766a, type: 3}
+        Seed: 0
+    Cooldown: 0
+    RandomizePitch: 0
+    BasePitch: 1
+    PlayChance: 1
+    StartDelay: 0
+    Volume: 1
+    AddClipLengthToCoolDown: 0
+    NamedAudioSource: 
+    HasLocalization: 0
+    LocalizedSounds: []
+    Mixer: {fileID: -307894707232571618, guid: a0946f24a57fa3b4980f9b8521cdf2af, type: 2}
+  - Name: Voice.LowEnergy.EN
+    Src:
+      StorageType: 1
+      SingleObject: {fileID: 0}
+      Method: 3
+      WeightDecrease: 0
+      WeightIncrease: 0
+      WeightsResetLimit: 0
+      Collection: {fileID: 0}
+      _list:
+        WeightDecrease: 0
+        WeightIncrease: 0
+        DropZeroWeightElements: 0
+        WeightsResetLimit: 0
+        ExposeFieldsToInspector: 0
+        elements:
+        - Weight: 1
+          Element: {fileID: 8300000, guid: a5af9d1e394f3b243bbded72d56125fb, type: 3}
+        Seed: 0
+    Cooldown: 0
+    RandomizePitch: 0
+    BasePitch: 1
+    PlayChance: 1
+    StartDelay: 0
+    Volume: 1
+    AddClipLengthToCoolDown: 0
+    NamedAudioSource: 
+    HasLocalization: 0
+    LocalizedSounds: []
+    Mixer: {fileID: -307894707232571618, guid: a0946f24a57fa3b4980f9b8521cdf2af, type: 2}
+  - Name: Voice.GameOver.EN
+    Src:
+      StorageType: 1
+      SingleObject: {fileID: 0}
+      Method: 3
+      WeightDecrease: 0
+      WeightIncrease: 0
+      WeightsResetLimit: 0
+      Collection: {fileID: 0}
+      _list:
+        WeightDecrease: 0
+        WeightIncrease: 0
+        DropZeroWeightElements: 0
+        WeightsResetLimit: 0
+        ExposeFieldsToInspector: 0
+        elements:
+        - Weight: 1
+          Element: {fileID: 8300000, guid: 1a5523704ad46f149aa90d3129173cb3, type: 3}
+        - Weight: 1
+          Element: {fileID: 8300000, guid: 7d2bf7337b5f724498844e274c3f0457, type: 3}
+        - Weight: 1
+          Element: {fileID: 8300000, guid: 7f897adffea61c74b85c72ec2c71f853, type: 3}
+        Seed: 0
+    Cooldown: 0
+    RandomizePitch: 0
+    BasePitch: 1
+    PlayChance: 1
+    StartDelay: 0
+    Volume: 1
+    AddClipLengthToCoolDown: 0
+    NamedAudioSource: 
+    HasLocalization: 0
+    LocalizedSounds: []
+    Mixer: {fileID: -307894707232571618, guid: a0946f24a57fa3b4980f9b8521cdf2af, type: 2}
+  - Name: Voice.GameOver.UA
+    Src:
+      StorageType: 1
+      SingleObject: {fileID: 0}
+      Method: 3
+      WeightDecrease: 0
+      WeightIncrease: 0
+      WeightsResetLimit: 0
+      Collection: {fileID: 0}
+      _list:
+        WeightDecrease: 0
+        WeightIncrease: 0
+        DropZeroWeightElements: 0
+        WeightsResetLimit: 0
+        ExposeFieldsToInspector: 0
+        elements:
+        - Weight: 1
+          Element: {fileID: 8300000, guid: 8991c72262201f84d9b01591bc1a973f, type: 3}
+        - Weight: 1
+          Element: {fileID: 8300000, guid: c5e0b027058888746a0c0170f46eb978, type: 3}
+        - Weight: 1
+          Element: {fileID: 8300000, guid: 45b6a170d37a9614da6fd4564e113ba2, type: 3}
+        - Weight: 1
+          Element: {fileID: 8300000, guid: 4e99822f667172d4191ff849d6d0f4f1, type: 3}
+        Seed: 0
+    Cooldown: 0
+    RandomizePitch: 0
+    BasePitch: 1
+    PlayChance: 1
+    StartDelay: 0
+    Volume: 1
+    AddClipLengthToCoolDown: 0
+    NamedAudioSource: 
+    HasLocalization: 0
+    LocalizedSounds:
+    - Language: 0
+      Localized: {fileID: 0}
+    - Language: 0
+      Localized: {fileID: 0}
+    Mixer: {fileID: -307894707232571618, guid: a0946f24a57fa3b4980f9b8521cdf2af, type: 2}
+  - Name: Voice.Pause.UA
+    Src:
+      StorageType: 1
+      SingleObject: {fileID: 0}
+      Method: 3
+      WeightDecrease: 0
+      WeightIncrease: 0
+      WeightsResetLimit: 0
+      Collection: {fileID: 0}
+      _list:
+        WeightDecrease: 0
+        WeightIncrease: 0
+        DropZeroWeightElements: 0
+        WeightsResetLimit: 0
+        ExposeFieldsToInspector: 0
+        elements:
+        - Weight: 1
+          Element: {fileID: 8300000, guid: 1994348c81fe5ea47b202def9d000e3c, type: 3}
+        - Weight: 1
+          Element: {fileID: 8300000, guid: 6c7d8a170d2a02a498aa41605013a600, type: 3}
+        - Weight: 1
+          Element: {fileID: 8300000, guid: 6bae869d617709c429d604ed2436204a, type: 3}
+        - Weight: 1
+          Element: {fileID: 8300000, guid: ac05e6f41779e3a4999e7bdaaf7c2bf7, type: 3}
+        - Weight: 1
+          Element: {fileID: 8300000, guid: a16cd0f1f1bb91f4d876f6a0fc732fd1, type: 3}
+        Seed: 0
+    Cooldown: 0
+    RandomizePitch: 0
+    BasePitch: 1
+    PlayChance: 1
+    StartDelay: 0
+    Volume: 1
+    AddClipLengthToCoolDown: 0
+    NamedAudioSource: 
+    HasLocalization: 0
+    LocalizedSounds:
+    - Language: 0
+      Localized: {fileID: 0}
+    - Language: 0
+      Localized: {fileID: 0}
+    Mixer: {fileID: -307894707232571618, guid: a0946f24a57fa3b4980f9b8521cdf2af, type: 2}
+  - Name: Voice.Pause.EN
+    Src:
+      StorageType: 1
+      SingleObject: {fileID: 0}
+      Method: 3
+      WeightDecrease: 0
+      WeightIncrease: 0
+      WeightsResetLimit: 0
+      Collection: {fileID: 0}
+      _list:
+        WeightDecrease: 0
+        WeightIncrease: 0
+        DropZeroWeightElements: 0
+        WeightsResetLimit: 0
+        ExposeFieldsToInspector: 0
+        elements:
+        - Weight: 1
+          Element: {fileID: 8300000, guid: 08bc47ee0c2db934ba0a62191a18bc67, type: 3}
+        - Weight: 1
+          Element: {fileID: 8300000, guid: 17e48568ac2a7454d809cac0b1f8590b, type: 3}
+        - Weight: 1
+          Element: {fileID: 8300000, guid: 2d2a2b6c032b5aa4db636f84e062f0ec, type: 3}
+        - Weight: 1
+          Element: {fileID: 8300000, guid: 638213fbca5042b44a5f43e9630664d0, type: 3}
+        - Weight: 1
+          Element: {fileID: 8300000, guid: 210d270a34dba764995e1c6032659339, type: 3}
+        - Weight: 1
+          Element: {fileID: 8300000, guid: f90ed7ff149638740aa8f735aa02e1b2, type: 3}
+        - Weight: 1
+          Element: {fileID: 8300000, guid: a904b74f5ac4a2641a37e989034970fa, type: 3}
+        Seed: 0
+    Cooldown: 0
+    RandomizePitch: 0
+    BasePitch: 1
+    PlayChance: 1
+    StartDelay: 0
+    Volume: 1
+    AddClipLengthToCoolDown: 0
+    NamedAudioSource: 
+    HasLocalization: 0
+    LocalizedSounds:
+    - Language: 0
+      Localized: {fileID: 0}
+    - Language: 0
+      Localized: {fileID: 0}
+    Mixer: {fileID: -307894707232571618, guid: a0946f24a57fa3b4980f9b8521cdf2af, type: 2}
+  - Name: Voice.Tip.EN
+    Src:
+      StorageType: 1
+      SingleObject: {fileID: 0}
+      Method: 3
+      WeightDecrease: 0
+      WeightIncrease: 0
+      WeightsResetLimit: 0
+      Collection: {fileID: 0}
+      _list:
+        WeightDecrease: 0
+        WeightIncrease: 0
+        DropZeroWeightElements: 0
+        WeightsResetLimit: 0
+        ExposeFieldsToInspector: 0
+        elements:
+        - Weight: 1
+          Element: {fileID: 8300000, guid: 96f3d6814f18b5249b061f9b62b8f7bd, type: 3}
+        - Weight: 1
+          Element: {fileID: 8300000, guid: 367afc28ebb9dd84ab3378bbbcf93391, type: 3}
+        - Weight: 1
+          Element: {fileID: 8300000, guid: 81ea59b8aa5fb934d88e7b9dfce953ac, type: 3}
+        Seed: 0
+    Cooldown: 0
+    RandomizePitch: 0
+    BasePitch: 1
+    PlayChance: 1
+    StartDelay: 0
+    Volume: 1
+    AddClipLengthToCoolDown: 0
+    NamedAudioSource: 
+    HasLocalization: 0
+    LocalizedSounds:
+    - Language: 0
+      Localized: {fileID: 0}
+    - Language: 0
+      Localized: {fileID: 0}
+    Mixer: {fileID: -307894707232571618, guid: a0946f24a57fa3b4980f9b8521cdf2af, type: 2}
+  - Name: Voice.Tip.UA
+    Src:
+      StorageType: 1
+      SingleObject: {fileID: 0}
+      Method: 3
+      WeightDecrease: 0
+      WeightIncrease: 0
+      WeightsResetLimit: 0
+      Collection: {fileID: 0}
+      _list:
+        WeightDecrease: 0
+        WeightIncrease: 0
+        DropZeroWeightElements: 0
+        WeightsResetLimit: 0
+        ExposeFieldsToInspector: 0
+        elements:
+        - Weight: 1
+          Element: {fileID: 8300000, guid: 5b4704063788be6489bbbab492ff277a, type: 3}
+        - Weight: 1
+          Element: {fileID: 8300000, guid: f5726b855260c8c4986e8c55ac46a585, type: 3}
+        Seed: 0
+    Cooldown: 0
+    RandomizePitch: 0
+    BasePitch: 1
+    PlayChance: 1
+    StartDelay: 0
+    Volume: 1
+    AddClipLengthToCoolDown: 0
+    NamedAudioSource: 
+    HasLocalization: 0
+    LocalizedSounds:
+    - Language: 0
+      Localized: {fileID: 0}
+    - Language: 0
+      Localized: {fileID: 0}
+    Mixer: {fileID: -307894707232571618, guid: a0946f24a57fa3b4980f9b8521cdf2af, type: 2}
+  - Name: SFX.Gem
+    Src:
+      StorageType: 2
+      SingleObject: {fileID: 8300000, guid: e95e1618b8a708d4e87ed574cabd4732, type: 3}
+      Method: 3
+      WeightDecrease: 0
+      WeightIncrease: 0
+      WeightsResetLimit: 0
+      Collection: {fileID: 0}
+      _list:
+        WeightDecrease: 0
+        WeightIncrease: 0
+        DropZeroWeightElements: 0
+        WeightsResetLimit: 0
+        ExposeFieldsToInspector: 1
+        elements: []
+        Seed: 0
+    Cooldown: 0
+    RandomizePitch: 0
+    BasePitch: 1
+    PlayChance: 1
+    StartDelay: 0
+    Volume: 0.8
+    AddClipLengthToCoolDown: 0
+    NamedAudioSource: 
+    HasLocalization: 0
+    LocalizedSounds:
+    - Language: 0
+      Localized: {fileID: 0}
+    - Language: 0
+      Localized: {fileID: 0}
+    Mixer: {fileID: -2064164837535275794, guid: a0946f24a57fa3b4980f9b8521cdf2af, type: 2}
+  - Name: SFX.Soul
+    Src:
+      StorageType: 2
+      SingleObject: {fileID: 8300000, guid: c010dc1d60db5694cbc2ce25af91a344, type: 3}
+      Method: 3
+      WeightDecrease: 0
+      WeightIncrease: 0
+      WeightsResetLimit: 0
+      Collection: {fileID: 0}
+      _list:
+        WeightDecrease: 0
+        WeightIncrease: 0
+        DropZeroWeightElements: 0
+        WeightsResetLimit: 0
+        ExposeFieldsToInspector: 1
+        elements: []
+        Seed: 0
+    Cooldown: 0
+    RandomizePitch: 0
+    BasePitch: 1
+    PlayChance: 1
+    StartDelay: 0
+    Volume: 1
+    AddClipLengthToCoolDown: 0
+    NamedAudioSource: 
+    HasLocalization: 0
+    LocalizedSounds:
+    - Language: 0
+      Localized: {fileID: 0}
+    - Language: 0
+      Localized: {fileID: 0}
+    Mixer: {fileID: -2064164837535275794, guid: a0946f24a57fa3b4980f9b8521cdf2af, type: 2}
+  DefaultMixer: {fileID: -2064164837535275794, guid: a0946f24a57fa3b4980f9b8521cdf2af, type: 2}
+--- !u!1 &8486915809165700520
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 473117634280087145}
+  - component: {fileID: 1807509966300095643}
+  m_Layer: 0
+  m_Name: VOICE
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &473117634280087145
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8486915809165700520}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4733645479545350381}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1807509966300095643
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8486915809165700520}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -307894707232571618, guid: a0946f24a57fa3b4980f9b8521cdf2af, type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

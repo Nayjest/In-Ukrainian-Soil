@@ -1,0 +1,210 @@
+#, fuzzy
+msgid ""
+msgstr ""
+
+
+msgid "Continue"
+msgstr "Продовжити"
+
+msgid "Help"
+msgstr "Як грати"
+
+msgid "How to play"
+msgstr "Як грати"
+
+msgid "Go Back"
+msgstr "Повернутись"
+
+msgid "Leave"
+msgstr "Вийти"
+
+msgid "Souls"
+msgstr "Віднайдені душі"
+
+msgid "Try again"
+msgstr "Грати знову"
+
+# ========= Pause
+
+msgid "The time was frozen in its endless chase"
+msgstr "І мить завмерла, о чарівна мить"
+
+msgid "The time was frozen in its endless chase.<br><size=91%>Eternity's embrace, a frozen moment's grace</size>"
+msgstr "І час впинив свій плин"
+
+msgid "Eternity seized, moments so bright"
+msgstr "Застив плин часу, мов у брилі льодяній"
+
+msgid "Time frozen, memories divine"
+msgstr "Плин часу спить, завмерла мить"
+
+msgid "Eternity seized, moments in tow"
+msgstr "Твій таймер спить, завмерла мить"
+
+msgid "Moments stilled, Time in chains"
+msgstr "А час веслує без перепочинку,<br>Втім, ось: Тримай хвилинку"
+
+msgid "The world held its breath"
+msgstr "Всесвіт затамував подих"
+
+msgid "Pause"
+msgstr "Перепочинь і знову розпочни"
+
+msgid "The time was frozen in its endless chase "
+msgstr "Буденна мить застигла в часу плині"
+
+# ========= Game Over
+
+msgid "<cspace=6> Every trail has its end,</cspace>
+<size=80%>and every calamity brings its lesson</size>"
+msgstr "Твій час скінчився"
+
+msgid "Endings are the saddest part"
+msgstr "Тобі так і не вдалось знайти вихід"
+
+msgid "Your time is over"
+msgstr "Небесна брама залишається закритою"
+
+msgid "The journey's end, the soul begins to fade"
+msgstr "Ось і все"
+
+msgid "The game is lost, no victory obtained"
+msgstr "Гірка кінцівка"
+
+msgid "Heaven's gate, remains forever closed"
+msgstr "Кінець подорожі"
+
+
+# Generic button caption / label text for skipping any longg comments, videos, etc
+msgid "Skip"
+msgstr "Пропустити"
+
+# ==================== Table of Records
+
+msgid "Play Again"
+msgstr "Грати Знову"
+
+# Caption of button for returning to main menu
+msgid "Main Menu"
+msgstr "Повернутись в Меню"
+
+# ======================= Settings
+
+# Caption of setting Screen
+
+msgid "Settings"
+msgstr "Налаштування"
+
+# Caption of music volume control
+msgid "Music Volume"
+msgstr "Музика"
+
+# Caption of sound volume control
+msgid "Sound Volume"
+msgstr "Звукові ефекти"
+
+# Caption of voice volume control
+msgid "Voice"
+msgstr "Голос"
+
+# Caption of language select dropdown
+msgid "Language"
+msgstr "Мова"
+
+# Caption of screen resolution select dropdown
+msgid "Screen Resolution"
+msgstr "Розділ. здатність екрану"
+
+# Caption of full screen mode checkbox
+msgid "Full Screen"
+msgstr "Повноекранний режим"
+
+# Caption of graphics quality select dropdown
+msgid "Graphics Quality"
+msgstr "Якість графіки"
+
+msgid "Very high quality"
+msgstr "Дуже висока якість"
+
+msgid "High quality"
+msgstr "Висока якість"
+
+msgid "Medium quality"
+msgstr "Середня якість"
+
+msgid "Low quality"
+msgstr "Низька якість"
+
+
+# ======================= Menu
+# Button Captions
+
+# Button caption for starting game
+msgid "Play"
+msgstr "Почати Гру"
+
+
+msgid "Table of Records"
+msgstr "Таблиця Рекордів"
+
+msgid "View Intro"
+msgstr "Вступ"
+
+# Caption for button that activates screen with game authors
+msgid "Credits"
+msgstr "Автори"
+
+msgid "Quit"
+msgstr "Вийти"
+
+# ======================= Choose Character Screen
+
+# Screen Caption
+msgid "Choose Character"
+msgstr "Оберіть персонажа"
+
+# Button that starts game
+msgid "Start"
+msgstr "Почати"
+
+# Caption of UI block that allows to select game stage(level)
+
+msgid "Select stage"
+msgstr "Рівень"
+
+
+# Caption of UI block that allows to select game diffuculty
+
+msgid "Game difficulty"
+msgstr "Складність гри"
+
+# Game diffuculty modes
+
+msgid "Easy"
+msgstr "Легко"
+
+msgid "Normal"
+msgstr "Нормально"
+
+msgid "Hard"
+msgstr "Тяжко"
+
+msgid "Hell"
+msgstr "Пекло"
+
+# ======================= Game GUI
+
+# Caption of game score indicator followed by score number
+msgid "Score {0}"
+msgstr "Рахунок {0}"
+
+# Caption of player health indicator followed by health number
+msgid "Health {0}"
+msgstr "Здоров'я {0}"
+
+# Caption of message displayed when game is on pause
+msgid "Game Paused"
+msgstr "Пауза"
+
+msgid "lastmsg"
+msgstr "123"

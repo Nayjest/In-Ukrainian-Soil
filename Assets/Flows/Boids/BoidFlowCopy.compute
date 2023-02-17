@@ -1,0 +1,283 @@
+// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel EncodePosition
+#pragma kernel ParticleBoidsCompute
+#pragma kernel ParticleMove
+#pragma kernel MoveFromTail
+
+#define SCALING_FACTOR 0.05
+
+//structs
+struct BoidsData
+{
+    float3 position;
+    float3 velocity;
+    float size;
+};
+
+struct CurveData
+{
+    float3 pos;
+};
+
+//constants
+int _Resolution;
+
+float _SpeedFac;
+float _SeparationFac;
+float _AlignmentFac;
+float _CohesionFac;
+float _AttractorFac;
+float _CurveDirSpeedFac;
+float _RandomFac;
+float3 _LinePoint1;
+float3 _LinePoint2;
+float _TunnelRadius;
+int _CurvePointCount;
+float _Dump;
+float _Inertia;
+float _InteractRange;
+
+float rand(float3 co)
+{
+    return frac(sin(dot(co.xyz, float3(12.9898, 78.233, 45.5432))) * 43758.5453);
+}
+
+float3 toLine(float3 p, float3 line_start, float3 line_end)
+{
+    float3 line_direction = line_end - line_start;
+    float line_length = (length(line_direction));
+    line_direction = normalize(line_direction);
+    // use clamp if need limit to movement between 2 points
+    //float project_length = clamp(dot(p - line_start, line_direction), 0, line_length);    
+    float project_length = dot(p - line_start, line_direction);    
+
+    float3 closestPoint = line_start + line_direction * project_length;
+    return closestPoint - p;
+}
+
+
+//textures
+RWTexture2D<float4> _ParticlePositions;
+
+//buffer
+RWStructuredBuffer<BoidsData> _ParticleBuffer;
+RWStructuredBuffer<float3> _CurveBuffer;
+
+float3 tunnelVelocityFactor(float3 pos1, float3 linePoint1, float3 linePoint2)
+{
+    float3 fAlong = normalize(linePoint2 - linePoint1) * _CurveDirSpeedFac;    
+    float3 fCenter = toLine(pos1, linePoint1, linePoint2);            
+    return length(fCenter) > _TunnelRadius ? fAlong + fCenter : fAlong;    
+}
+
+void curveIndexes(float3 position, out int index1, out int index2)
+{
+    int size = _CurvePointCount;
+    
+    float minDist1 = 1000000;    
+    float minDist2 = 1000000;    
+
+    for (int i = 0; i < size; i++) {
+        float dist = distance(position, _CurveBuffer[i]);
+        if (dist < minDist1) {
+            index1 = i;
+            minDist1 = dist;
+        }
+        if (dist < minDist2 && index1 != i) {
+            index2 = i;
+            minDist2 = dist;
+        }
+    }
+    index2 = (index2 > index1) ? index1 + 1 : index1 - 1;
+    if (index2 > index1) {
+        index2 = index1 + 1;
+    }
+    else {
+        index2 = index1;
+        index1 = index1 - 1;
+    }
+}
+
+float3 curveVelocityFactor(inout float3 position)
+{
+    int size = _CurvePointCount;
+    //uint size = 6;
+
+    
+    
+    int index1;    
+    int index2;
+    curveIndexes(position, index1, index2);
+
+    //return tunnelVelocityFactor(position, _CurveBuffer[index1], _CurveBuffer[index2]);
+    float3 linePoint1 = _CurveBuffer[index1];
+    float3 linePoint2 = _CurveBuffer[index2];
+
+    float3 lineVec = linePoint2 - linePoint1;
+    float3 line_direction = normalize(lineVec);
+    float line_length = (length(lineVec));
+    
+    // use clamp if need limit to movement between 2 points
+    //float project_length = clamp(dot(p - line_start, line_direction), 0, line_length);    
+    float project_length = dot(position - linePoint1, line_direction);
+    float  clampedProjLength = clamp(project_length, 0, line_length);
+    float3 closestPoint = linePoint1 + line_direction * clampedProjLength;
+    float3 fAlong = line_direction * _CurveDirSpeedFac;    
+    float3 fCenter = closestPoint - position;    
+    float fCenterLen = length(fCenter);
+
+    // Move to beginning of curve
+    if (index2 == size - 1) {
+        fAlong *= 1.5;
+        if (project_length > line_length) {
+            float3 relPos = position - linePoint2;
+            position = _CurveBuffer[0] + relPos;
+        }
+    }
+    
+
+    if (fCenterLen <= _TunnelRadius) {
+        return fAlong;
+    }
+    else {
+        fCenter *= _AttractorFac * (fCenterLen - _TunnelRadius)/ fCenterLen;
+        return fAlong + fCenter;
+    }
+
+    //float3 fCenter = toLine(position, linePoint1, linePoint2);
+    //return length(fCenter) > _TunnelRadius ? fAlong + fCenter : fAlong;
+}
+
+[numthreads(16,16,1)]
+void EncodePosition (uint3 id : SV_DispatchThreadID)
+{
+    int index = id.x + id.y * _Resolution; //get the appropriate particle index based on uv.xy
+    
+    BoidsData particle = _ParticleBuffer[index];
+    float3 position = particle.position;
+    float size = particle.size * SCALING_FACTOR;
+
+    //set the position to the rgb of texture
+    _ParticlePositions[id.xy] = float4(position, size);
+}
+
+[numthreads(64, 1, 1)]
+void MoveFromTail(uint3 id : SV_DispatchThreadID)
+{
+    BoidsData particle = _ParticleBuffer[id.x];
+    float3 position = particle.position;
+    
+
+    int index1;
+    int index2;
+    curveIndexes(position, index1, index2);
+    
+    //particle.position = position + float3(80, 80, 80);
+    //_ParticleBuffer[id.x] = particle;
+    
+    if (index1 == 0) {
+        float3 linePoint1 = _CurveBuffer[index1];
+        float3 linePoint2 = _CurveBuffer[index2];
+        float3 oldCenter = (_CurveBuffer[index1] + _CurveBuffer[index2]) / 2;
+        float3 newCenter = (_CurveBuffer[_CurvePointCount - 2] + _CurveBuffer[_CurvePointCount - 1]) / 2;
+        particle.position = position - oldCenter + newCenter;
+        _ParticleBuffer[id.x] = particle;            
+       
+    }     
+}
+
+//we are compute the attraction and changing the velocity
+[numthreads(64,1,1)]
+void ParticleBoidsCompute (uint3 id : SV_DispatchThreadID)
+{
+    BoidsData particle = _ParticleBuffer[id.x];
+    float3 position = particle.position;
+    float3 velocity = particle.velocity;
+    float size = particle.size;
+    int particleCount = _Resolution * _Resolution;
+
+    int neighbourCount = 1;
+    float3 separation = float3(0,0,0);
+    float3 alignment = velocity; 
+    float3 cohesion = position;
+
+
+    for (int i = 0; i < particleCount; i++)
+    {
+        if(i == id.x) continue; //ignore self
+        
+        BoidsData otherParticle = _ParticleBuffer[i];
+        float range = (size + otherParticle.size) * _InteractRange;
+
+        //if they are within range 
+        if(distance(position, otherParticle.position) <  range )
+        {
+            //separation difference           
+            float3 diff = position - otherParticle.position;
+            float diffLen = (length(diff));
+            float scaler = clamp(1.0 - diffLen / (float)range, 0.0, 1.0);
+            float3 separationVector = diff * (scaler / diffLen);
+            
+            separation += separationVector;
+            alignment += otherParticle.velocity;
+            cohesion += otherParticle.position;
+            neighbourCount++;
+        }
+
+        
+    }
+    float avg = 1.0 / neighbourCount;
+    // separation *= avg;
+    alignment *= avg;
+    cohesion *= avg;
+    cohesion = (cohesion - position);
+
+    
+    
+    if(true)
+    {
+        velocity += separation * _SeparationFac;
+        velocity += alignment * _AlignmentFac;
+        velocity += cohesion * _CohesionFac;
+        //float3 centerForce = -position * _AttractorFac;
+        //velocity += centerForce;
+        
+        //velocity += tunnelVelocityFactor(position, _LinePoint1, _LinePoint2);
+        velocity += curveVelocityFactor(position);
+        //velocity += toLine(position, _LinePoint1, _LinePoint2);
+
+
+        float3 rnd = _RandomFac * float3(rand(velocity*3+position) -0.5, rand(velocity*2+position)-0.5, rand(position+velocity)-0.5);
+        velocity += rnd;
+    }
+    
+    particle.velocity = 
+        (particle.velocity * _Inertia * (1-_Dump)) + 
+        (1- _Inertia) * normalize(velocity)  * (rand(float3(size, size, size)) * 0.45 + 0.55);
+    //if (any(position != particle.position)) {
+    particle.position = position;
+
+    //}
+    //particle.velocity *= (size + 0.2);    
+    
+
+
+    //set the position to the rgb of texture
+    _ParticleBuffer[id.x] = particle;
+}
+
+//we are just moving the particles and making sure they dont go out of bounds
+[numthreads(64,1,1)]
+void ParticleMove (uint3 id : SV_DispatchThreadID)
+{
+    BoidsData particle = _ParticleBuffer[id.x];
+    float3 position = particle.position;
+    float3 velocity = particle.velocity;
+    float size = particle.size;
+
+    particle.position += velocity * 0.5 * _SpeedFac;
+    
+    //set the position to the rgb of texture
+    _ParticleBuffer[id.x] = particle;
+}
+
